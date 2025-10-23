@@ -2,377 +2,538 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Royelle - Luxury Hotel</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8f8f8;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura2</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            box-sizing: border-box;
+        }
 
-    /* Top Bar */
-    .top-bar {
-      background: #03312E;
-      color: white;
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 40px;
-      align-items: center;
-    }
+        .contenedor {
+            border: 1px solid black;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            margin: 20px 0;
+        }
 
-    .top-bar div {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
+        .logo-container {
+            background-color: #1E1F26;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    .top-bar a {
-      color: white;
-      text-decoration: none;
-    }
+        .text2 {
+            font-size: 50px;
+            color: #FF2E63;
+            font-weight: bold;
+            font-family: sans-serif;
+            padding-right: 45px;
+        }
 
-    .top-bar .socials a {
-      margin-left: 10px;
-      font-size: 16px;
-    }
+        .logo-container img {
+            height: 50px;
+            width: auto;
+            margin-left: 40px;
+        }
 
-    /* Navbar */
-    nav {
-      background: white;
-      padding: 15px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #ddd;
-    }
+        .linea-roja {
+            background-color: #FF2E63;
+            height: 15px;
+            width: 100%;
+        }
 
-    nav .logo {
-      font-weight: bold;
-      font-size: 22px;
-      color: #03312E;
-    }
+        .contenedor2 {
+            background-color: #1E1F26;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
-    }
+        .introduccion p {
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: sans-serif;
+        }
 
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
+        .introduccion p.a {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
 
-    .btn-book {
-      background: #03312E;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        .introduccion strong {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
 
-    /* Hero Section */
-    .hero {
-      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-      position: relative;
-    }
+        .introduccion p.b {
+            font-size: 0.7em;
+        }
 
-    .hero h1 {
-      font-size: 40px;
-      font-weight: bold;
-    }
+        .introduccion2 {
+            text-align: right;
+            line-height: 1.6;
+            color: white;
+            font-family: sans-serif;
+        }
 
-    .hero p {
-      margin-top: 10px;
-      font-size: 16px;
-    }
+        .introduccion2 p {
+            display: flex;
+            margin-bottom: 10px;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* Welcome Section */
-    .welcome {
-      text-align: center;
-      padding: 60px 20px;
-      background: #f8f8f8;
-      color: #333;
-    }
+        .introduccion2 p:last-child {
+            margin-bottom: 0;
+        }
 
-    .welcome h2 {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
+        .introduccion2 span {
+            font-weight: bold;
+            white-space: nowrap;
+            min-width: 80px;
+            text-align: left;
+        }
 
-    .welcome p {
-      max-width: 800px;
-      margin: 0 auto 25px auto;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #555;
-    }
+        .introduccion2 span.value {
+            white-space: nowrap;
+            flex-grow: 1;
+            text-align: right;
+        }
 
-    .welcome button {
-      background: #03312E;
-      color: white;
-      border: none;
-      padding: 12px 30px;
-      border-radius: 5px;
-      font-size: 15px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+        .table-scroll-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
 
-    .welcome button:hover {
-      background: #055b54;
-    }
+        .invoice-table {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
 
-    /* Rooms Section */
-    .rooms {
-      padding: 60px 40px;
-      text-align: center;
-    }
+        .table-header,
+        .table-row {
+            display: table-row;
+        }
 
-    .rooms h2 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+        .table-header {
+            background-color: #e6ecec;
+            font-weight: bold;
+            color: black;
+            font-size: 16px;
+        }
 
-    .room-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
+        .table-cell {
+            display: table-cell;
+            padding: 20px 0;
+            vertical-align: middle;
+            border-bottom: 1px solid black;
+        }
 
-    .room-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
+        .table-row:last-of-type .table-cell {
+            border-bottom: none;
+        }
 
-    .room-card:hover {
-      transform: translateY(-5px);
-    }
+        .table-header .table-cell {
+            padding: 20px 40px;
+        }
 
-    .room-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+        .table-row .table-cell {
+            padding: 20px 40px;
+        }
 
-    .room-info {
-      padding: 20px;
-      text-align: left;
-    }
+        .col-sl {
+            width: 5%;
+            text-align: left;
+        }
 
-    .room-info h3 {
-      margin: 5px 0;
-      font-size: 18px;
-    }
+        .col-item {
+            width: 50%;
+            text-align: left;
+        }
 
-    .room-info p {
-      margin: 5px 0;
-      color: #777;
-      font-size: 14px;
-    }
+        .col-price {
+            width: 15%;
+            text-align: right;
+        }
 
-    .price {
-      font-size: 20px;
-      font-weight: bold;
-      color: #03312E;
-    }
+        .col-qty {
+            width: 10%;
+            text-align: right;
+        }
 
-    /* Amenities Strip */
-    .amenities {
-      background: #03312E;
-      color: white;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 20px;
-      font-weight: 500;
-    }
+        .col-total {
+            width: 20%;
+            text-align: right;
+        }
 
-    /* Reservation Section */
-    .reservation {
-      padding: 60px 20px;
-      text-align: center;
-      background: #f1f1f1;
-    }
+        .col-item div {
+            white-space: normal;
+        }
 
-    .reservation h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-    }
+        .espacio-con-lineas {
+            height: 80px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            margin: 20px 40px;
+            box-sizing: border-box;
+        }
 
-    .reservation p {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #555;
-    }
+        .seccion-final {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            flex-grow: 1;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
 
-    .reservation button {
-      background: #03312E;
-      color: white;
-      border: none;
-      padding: 12px 30px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
+        .info-izquierda {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 50%;
+        }
+
+        .agradecimiento {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .payment-info p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .payment-info strong {
+            font-weight: bold;
+        }
+
+        .terms-conditions {
+            margin-top: 40px;
+            line-height: 1.5;
+            font-size: 0.9em;
+        }
+
+        .terms-conditions strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .info-derecha {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .totales-tabla {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 40px;
+        }
+
+        .totales-fila {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .totales-fila span:first-child {
+            font-weight: bold;
+            min-width: 80px;
+            text-align: left;
+        }
+
+        .totales-fila span:last-child {
+            font-weight: normal;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .totales-fila.total {
+            font-size: 1.2em;
+            font-weight: bold;
+            padding-top: 5px;
+            border-top: 1px solid black;
+        }
+
+        .firma {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #000;
+            width: 150px;
+            font-weight: bold;
+        }
+
+        .linea-negra-inferior {
+            background-color: #1E1F26;
+            height: 30px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        @media (max-width: 1160px) {
+            .contenedor {
+                width: 70%;
+            }
+        }
+
+        @media (max-width: 950px) {
+            .contenedor {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .contenedor {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .logo-container {
+                padding-right: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .logo-container img {
+                margin-left: 0;
+            }
+
+            .text2 {
+                padding-right: 0px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .text2 p {
+                margin: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .contenedor2 {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .introduccion {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .introduccion2 {
+                text-align: center;
+                margin-top: 0;
+            }
+
+            .introduccion2 p {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .introduccion2 span {
+                display: inline-block;
+                min-width: auto;
+                text-align: center;
+                margin-right: 0;
+            }
+
+            .introduccion2 span.value {
+                text-align: center;
+            }
+
+            .seccion-final {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .info-izquierda {
+                width: 100%;
+                order: 2;
+            }
+
+            .info-derecha {
+                width: 100%;
+                order: 1;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .totales-tabla {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .firma {
+                width: auto;
+                border-top: none;
+            }
+
+            .terms-conditions {
+                margin-top: 20px;
+            }
+
+            .table-cell {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .table-header .table-cell {
+                padding: 15px;
+            }
+
+            .col-sl {
+                min-width: 30px;
+            }
+
+            .col-item {
+                min-width: 120px;
+            }
+
+            .col-price {
+                min-width: 60px;
+            }
+
+            .col-qty {
+                min-width: 40px;
+            }
+
+            .col-total {
+                min-width: 70px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="contenedor">
+        <div class="logo-container">
+            <img src="./img/Logo.png" alt="logo">
+            <div class="text2">
+                <p>INVOICE</p>
+            </div>
+        </div>
+        <div class="linea-roja"></div>
+        <div class="contenedor2">
+            <div class="introduccion">
+                <p class="a">Invoice to:</p>
+                <p><strong>Dwyane Clark</strong></p>
+                <p class="b">24 Dummy Street Area,<br>Location, Lorem Ipsum,<br>970xxxxx</p>
+            </div>
+            <div class="introduccion2">
+                <p><span>Invoice#</span><span class="value">52148</span></p>
+                <p><span>Date:</span><span class="value">01 / 02 / 2020</span></p>
+            </div>
+        </div>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div>
-      <span>(000) 000-0000</span>
-      <span>example@gmail.com</span>
-      <span>2464 Royal Ln. Mesa, New Jersey 45463</span>
+        <div class="table-scroll-container">
+            <div class="invoice-table">
+                <div class="table-header">
+                    <div class="table-cell col-sl">SL.</div>
+                    <div class="table-cell col-item">Item Description</div>
+                    <div class="table-cell col-price">Price</div>
+                    <div class="table-cell col-qty">Qty</div>
+                    <div class="table-cell col-total">Total</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell col-sl">1</div>
+                    <div class="table-cell col-item">Lorem Ipsum Dolor</div>
+                    <div class="table-cell col-price">$50.00</div>
+                    <div class="table-cell col-qty">1</div>
+                    <div class="table-cell col-total">$50.00</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell col-sl">2</div>
+                    <div class="table-cell col-item">Pellentesque id neque liguia</div>
+                    <div class="table-cell col-price">$20.00</div>
+                    <div class="table-cell col-qty">3</div>
+                    <div class="table-cell col-total">$60.00</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell col-sl">3</div>
+                    <div class="table-cell col-item">Interdum et malesuada fames</div>
+                    <div class="table-cell col-price">$10.00</div>
+                    <div class="table-cell col-qty">2</div>
+                    <div class="table-cell col-total">$20.00</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell col-sl">4</div>
+                    <div class="table-cell col-item">Vivamus volutpat faucibus</div>
+                    <div class="table-cell col-price">$90.00</div>
+                    <div class="table-cell col-qty">1</div>
+                    <div class="table-cell col-total">$90.00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="espacio-con-lineas"></div>
+
+        <div class="seccion-final">
+            <div class="info-izquierda">
+                <p class="agradecimiento">Thank you for your business</p>
+                <div class="payment-info">
+                    <p><strong>Payment Info:</strong></p>
+                    <p>Account #: 1234 5678 9012</p>
+                    <p>A/C Name: Lorem Ipsum</p>
+                    <p>Bank Details: Add your details</p>
+                </div>
+                <div class="terms-conditions">
+                    <strong>Terms & Conditions</strong>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vulputate pretium consectetur.
+                        Curabitur tempor posuere massa in semper. Pellentesque viverra nibh eu vehicula mattis. Nullam
+                        porta.</p>
+                </div>
+            </div>
+
+            <div class="info-derecha">
+                <div class="totales-tabla">
+                    <div class="totales-fila">
+                        <span>Sub Total:</span><span>$220.00</span>
+                    </div>
+                    <div class="totales-fila">
+                        <span>Tax:</span><span>0.00%</span>
+                    </div>
+                    <div class="totales-fila total">
+                        <span>Total:</span><span>$220.00</span>
+                    </div>
+                </div>
+                <div class="firma">
+                    Authorised Sign
+                </div>
+            </div>
+        </div>
+        <div class="linea-negra-inferior"></div>
     </div>
-    <div class="socials">
-      <a href="#">🌐</a>
-      <a href="#">🐦</a>
-      <a href="#">📸</a>
-      <a href="#">💼</a>
-    </div>
-  </div>
-
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">🏨 Royelle</div>
-    <ul>
-      <li><a href="restaurante.html">Restaurant</a></li>
-      <li><a href="deportes.html">Sports</a></li>
-      <li><a href="jardineria.html">gardening</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-    <button class="btn-book">Book Now</button>
-  </nav>
-
-  <!-- Hero -->
-  <div class="hero">
-    <h1>Rooms & Suites</h1>
-    <p>Home > Rooms & Suites</p>
-  </div>
-
-  <!-- Welcome Section -->
-  <section class="welcome">
-    <h2>WELCOME TO ROYAL HOTEL</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas gravida sollicitudin sapien posuere.
-      Fusce nec rhoncus felis. Fusce vitae libero euismod, auctor orci quis, commodo orci.
-      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.
-    </p>
-    <button>Book Now</button>
-  </section>
-
-  <!-- Rooms Section -->
-  <section class="rooms">
-    <h2>Luxury Rooms & Suites</h2>
-    <div class="room-grid">
-      <div class="room-card">
-        <img src="img/hab1.jpg" alt="room">
-        <div class="room-info">
-          <div class="price">$150 / night</div>
-          <h3>Standard Rooms</h3>
-          <p>1 Bed • 1 Bath • 300 sqft</p>
-        </div>
-      </div>
-
-      <div class="room-card">
-        <img src="img/hab2.jpg" alt="room">
-        <div class="room-info">
-          <div class="price">$250 / night</div>
-          <h3>Deluxe Rooms</h3>
-          <p>1 Bed • 2 Bath • 400 sqft</p>
-        </div>
-      </div>
-
-      <div class="room-card">
-        <img src="img/hab3.jpg" alt="room">
-        <div class="room-info">
-          <div class="price">$450 / night</div>
-          <h3>The Pearl Suite</h3>
-          <p>2 Bed • 2 Bath • 700 sqft</p>
-        </div>
-      </div>
-
-      <div class="room-card">
-        <img src="img/hab4.jpg" alt="room">
-        <div class="room-info">
-          <div class="price">$550 / night</div>
-          <h3>Golden Horizon Suite</h3>
-          <p>3 Bed • 3 Bath • 800 sqft</p>
-        </div>
-      </div>
-
-      <div class="room-card">
-        <img src="img/hab5.jpg" alt="room">
-        <div class="room-info">
-          <div class="price">$300 / night</div>
-          <h3>The Haven Room</h3>
-          <p>2 Bed • 2 Bath • 750 sqft</p>
-        </div>
-      </div>
-
-      <div class="room-card">
-        <img src="img/hab6.jpg" alt="room">
-        <div class="room-info">
-          <div class="price">$450 / night</div>
-          <h3>The Executive Deluxe</h3>
-          <p>4 Bed • 3 Bath • 950 sqft</p>
-        </div>
-      </div>
-
-      <div class="room-card">
-        <img src="img/hab7.jpg" alt="room">
-        <div class="room-info">
-          <div class="price">$550 / night</div>
-          <h3>The Prestige Room</h3>
-          <p>5 Bed • 4 Bath • 1200 sqft</p>
-        </div>
-      </div>
-
-      <div class="room-card">
-        <img src="img/hab8.jpg" alt="room">
-        <div class="room-info">
-          <div class="price">$600 / night</div>
-          <h3>Royal Suite</h3>
-          <p>4 Bed • 3 Bath • 825 sqft</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Amenities -->
-  <div class="amenities">
-    <span>Breakfast Included</span> ✦
-    <span>Swimming Pool</span> ✦
-    <span>High Speed Wifi</span> ✦
-    <span>Spa & Wellness</span>
-  </div>
-
-  <!-- Reservation -->
-  <section class="reservation">
-    <h2>Book Your Stay and Enjoy Exceptional Comfort</h2>
-    <p>Make a reservation today and experience the luxury.</p>
-    <button>Make a Reservation</button>
-  </section>
-
 </body>
-</html>
 
+</html>
